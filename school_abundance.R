@@ -1,5 +1,6 @@
 ## Abundance of schools
 ## August 2022
+## In progress
 
 avg_herring_length_cm <- 15.5
 TS_herring <- 26.2*log10(avg_herring_length_cm) - 72.5
