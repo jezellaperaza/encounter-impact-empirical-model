@@ -152,3 +152,4 @@ June_03_abun <- vector(length = length(June_03_ABC))
 
 for (i in 1:length(June_03_ABC)) {
   June_03_abun[i] <- June_03_ABC[i]*area / sigma_bs_herring
+}

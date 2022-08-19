@@ -47,6 +47,15 @@ for (i in 1:length(ABC_four)) {
   four_vec[i] <- ABC_four[i]*transect_area / sigma_bs_herring
 }
 
+all_vector_transects <- vector()
+all_vector_transects <- c(two_vec, three_vec, four_vec)
+
+weighted_vectors <- as.data.frame(plyr::count(all_vector_transects))
+weight_vectors_all <- weighted.mean(weighted_vectors$x, weighted_vectors$freq)
+
+hist(all_vector_transects)
+abline(v = weight_vectors_all, col = "red")
+
 a <- mean(two_vec)
 b <- mean(three_vec)
 c <- mean(four_vec)
