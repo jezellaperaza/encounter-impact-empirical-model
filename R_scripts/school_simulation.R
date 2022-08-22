@@ -9,10 +9,10 @@ height <- 60 ## height of the transect
 n <- rpois(1, 10) ## number of schools
 
 ## defining the zone of influence
-xleft_zoi = 700
+xleft_zoi = 750
 xright_zoi = 900
 ybottom_zoi = 0
-ytop_zoi = 40
+ytop_zoi = 30
 box_area_zoi = (xright_zoi - xleft_zoi) * (ytop_zoi - ybottom_zoi)
 
 ## determines if a fish is within the zone of influence
