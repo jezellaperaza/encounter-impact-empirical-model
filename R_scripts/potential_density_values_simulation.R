@@ -1,6 +1,8 @@
 ### Organizing data for simulation
 ### July 2022
 
+#### Transects 2, 3 and 4 ####
+
 library(tidyverse)
 library(dplyr)
 library(plyr)
@@ -61,3 +63,35 @@ b <- mean(three_vec)
 c <- mean(four_vec)
 
 mean(c(a, b, c))
+
+#### All Transects ####
+
+load_data <- function(path) { 
+  files <- dir(path, pattern = '\\.csv', full.names = TRUE)
+  tables <- lapply(files, read.csv)
+  do.call(rbind, tables)
+}
+
+acoustic_data <- load_data("~/UW Summer 2022/EV Exports/Mobile/Transects Integrated by Depth/Turbulence Removed")
+
+transect_width <- 1500
+transect_height <- 60
+transect_area <- transect_width*transect_height
+
+avg_herring_length_cm <- 15.5
+TS_herring <- 26.2*log10(avg_herring_length_cm) - 72.5
+sigma_bs_herring <- 10^(TS_herring/10)
+
+ABC <- acoustic_data$ABC
+
+ABC_vector <- vector(length = length(ABC))
+
+for (i in 1:length(ABC)) {
+  ABC_vector[i] <- ABC[i]*transect_area / sigma_bs_herring
+}
+
+weighted_vector <- as.data.frame(plyr::count(ABC_vector))
+weight_vector_all <- weighted.mean(weighted_vector$x, weighted_vector$freq)
+
+hist(ABC_vector)
+abline(v = weight_vector_all, col = "red")

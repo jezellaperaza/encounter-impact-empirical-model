@@ -49,7 +49,7 @@ library(dplyr)
 
 each_transect_each_bin_30 <- all_acoustic_data_30 %>%
   group_by(Region_name, Dist_S) %>%
-  summarise(Sum_each = sum(abundance))
+  dplyr::summarise(Sum_each = sum(abundance))
 
 domain_abundance_region_30 <- all_acoustic_data_30 %>%
   group_by(Region_name) %>%
@@ -61,13 +61,13 @@ domain_abundance_30 <- all_acoustic_data_30 %>%
 
 all_data_abundances_30 <- all_acoustic_data_30 %>%
   group_by(Dist_S) %>%
-  summarise(Sum = sum(abundance))
+  dplyr::summarise(Sum = sum(abundance))
 
 ## 60 m
 
 each_transect_each_bin_60 <- all_acoustic_data_60 %>%
   group_by(Region_name, Dist_S) %>%
-  summarise(Sum_each = sum(abundance))
+  dplyr::summarise(Sum_each = sum(abundance))
 
 domain_abundance_region_60 <- all_acoustic_data_60 %>%
   group_by(Region_name) %>%
@@ -79,7 +79,7 @@ domain_abundance_60 <- all_acoustic_data_60 %>%
 
 all_data_abundances_60 <- all_acoustic_data_60 %>%
   group_by(Dist_S) %>%
-  summarise(Sum = sum(abundance))
+  dplyr::summarise(Sum = sum(abundance))
 
 #### Combine data frames and division function ####
 

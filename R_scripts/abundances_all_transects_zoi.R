@@ -1,5 +1,7 @@
 #### Obtaining abundances within the ZOI
 #### ZOI: 10 x 10 (150 meters across, 30 meters deep)
+#### Only transects 2, 3, and 4
+#### August 2022
 
 #### May 02 ####
 

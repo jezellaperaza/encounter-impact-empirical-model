@@ -7,7 +7,7 @@ TS_herring <- 26.2*log10(avg_herring_length_cm) - 72.5
 sigma_bs_herring <- 10^(TS_herring/10)
 area <- 1500*60
 
-#### Default (Sv) ####
+#### Default Transects 2, 3, 4 (Sv) ####
 
 ## Reading in transects
 
@@ -86,7 +86,7 @@ area <- 1500*60
 # nights_abun <- sv_abundance(school_detect_night$Sv_mean)
 # hist(nights_abun)
 
-#### Default (ABC and Corrected Area) Approach - Day & Night ####
+#### Default Transects 2, 3, 4 (ABC and Corrected Area) Approach - Day & Night ####
 
 setwd("~/UW Summer 2022/EV Exports/Mobile/School Detection/Default")
 
@@ -154,3 +154,64 @@ June_03_abun <- vector(length = length(June_03_ABC))
 for (i in 1:length(June_03_ABC)) {
   June_03_abun[i] <- June_03_ABC[i]*area / sigma_bs_herring
 }
+
+#### Default All Transects (ABC and Corrected Area) ####
+
+load_data <- function(path) { 
+  files <- dir(path, pattern = '\\.csv', full.names = TRUE)
+  tables <- lapply(files, read.csv)
+  do.call(rbind, tables)
+}
+
+schools_data <- load_data("~/UW Summer 2022/EV Exports/Mobile/School Detection/Default/all_transects")
+
+# All
+
+schools_all <- schools_data$ABC
+schools_all_abun <- vector(length = length(schools_all))
+
+for (i in 1:length(schools_all)) {
+  schools_all_abun[i] <- schools_all[i]*area / sigma_bs_herring
+}
+
+weighted <- as.data.frame(plyr::count(schools_all_abun))
+weight_mean_all <- weighted.mean(weighted$x, weighted$freq)
+
+hist(schools_all_abun, breaks = 20)
+abline(v = weight_mean_all, col = "red") 
+
+# Day
+
+setwd("~/UW Summer 2022/EV Exports/Mobile/School Detection/Default/all_transects")
+schools_day <- read.csv("all_day.csv")
+
+schools_day <- schools_day$ABC
+schools_day_abun <- vector(length = length(schools_day))
+
+for (i in 1:length(schools_day)) {
+  schools_day_abun[i] <- schools_day[i]*area / sigma_bs_herring
+}
+
+weighted <- as.data.frame(plyr::count(schools_day_abun))
+weight_mean_day <- weighted.mean(weighted$x, weighted$freq)
+
+hist(schools_day_abun, breaks = 20)
+abline(v = weight_mean_day, col = "red") 
+
+# Night
+
+setwd("~/UW Summer 2022/EV Exports/Mobile/School Detection/Default/all_transects")
+schools_night <- read.csv("all_night.csv")
+
+schools_night <- schools_night$ABC
+schools_night_abun <- vector(length = length(schools_night))
+
+for (i in 1:length(schools_night)) {
+  schools_night_abun[i] <- schools_night[i]*area / sigma_bs_herring
+}
+
+weighted <- as.data.frame(plyr::count(schools_night_abun))
+weight_mean_night <- weighted.mean(weighted$x, weighted$freq)
+
+hist(schools_night_abun, breaks = 20)
+abline(v = weight_mean_night, col = "red")

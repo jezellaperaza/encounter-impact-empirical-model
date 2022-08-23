@@ -1,5 +1,6 @@
 ## ZOI Component
 ## Obtaining abundances per day per transect
+## Only transects 2, 3, and 4
 ## August 2022
 
 #### Variables ####
