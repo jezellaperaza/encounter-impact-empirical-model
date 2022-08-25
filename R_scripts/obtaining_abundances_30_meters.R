@@ -1,6 +1,5 @@
 ## ZOI Component
 ## Obtaining abundances per day per transect
-## Only transects 2, 3, and 4
 ## August 2022
 
 #### Variables ####
@@ -10,30 +9,22 @@ TS_herring <- 26.2*log10(avg_herring_length_cm) - 72.5
 sigma_bs_herring <- 10^(TS_herring/10)
 transect_area <- 60*1500
 
-
 ## Obtaining Abundances ## 
 
-
-## Obtaining abundance ##
+# Filtering
 
 #### May 02 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_02_full <- read.csv("May_02_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_02_full <- read.csv("May_02_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 May_02_02 <- May_02_full[May_02_full$Region_name == "Grid_A_N_5_02_02",]
 May_02_03 <- May_02_full[May_02_full$Region_name == "Grid_A_N_5_02_03",]
 May_02_04 <- May_02_full[May_02_full$Region_name == "Grid_A_N_5_02_04",]
-
-## filter to not include above 60 m
-
-May_02_02 <- May_02_02 %>% filter(Layer_depth_max <= 60)
-May_02_03 <- May_02_03 %>% filter(Layer_depth_max <= 60)
-May_02_04 <- May_02_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -58,10 +49,10 @@ for (i in 1:length(May_02_04$PRC_ABC)) {
 
 #### May 04 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_04_full <- read.csv("May_04_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_04_full <- read.csv("May_04_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -76,20 +67,6 @@ May_04_04_rep <- May_04_full[May_04_full$Region_name == "GRID_A_N_REP_5_04_04",]
 May_04_02_night <- May_04_full[May_04_full$Region_name == "GRID_A_N_NIGHT_5_04_02",]
 May_04_03_night <- May_04_full[May_04_full$Region_name == "GRID_A_N_NIGHT_5_04_03",]
 May_04_04_night <- May_04_full[May_04_full$Region_name == "GRID_A_N_NIGHT_5_04_04",]
-
-## filter to not include above 60 m
-
-May_04_02 <- May_04_02 %>% filter(Layer_depth_max <= 60)
-May_04_03 <- May_04_03 %>% filter(Layer_depth_max <= 60)
-May_04_04 <- May_04_04 %>% filter(Layer_depth_max <= 60)
-
-May_04_02_rep <- May_04_02_rep %>% filter(Layer_depth_max <= 60)
-May_04_03_rep <- May_04_03_rep %>% filter(Layer_depth_max <= 60)
-May_04_04_rep <- May_04_04_rep %>% filter(Layer_depth_max <= 60)
-
-May_04_02_night <- May_04_02_night %>% filter(Layer_depth_max <= 60)
-May_04_03_night <- May_04_03_night %>% filter(Layer_depth_max <= 60)
-May_04_04_night <- May_04_04_night %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -156,10 +133,10 @@ for (i in 1:length(May_04_04_night$PRC_ABC)) {
 
 #### May 06 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_06_full <- read.csv("May_06_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_06_full <- read.csv("May_06_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -171,15 +148,6 @@ May_06_02_rep <- May_06_full[May_06_full$Region_name == "GRID_A_N_REP_5_06_02",]
 May_06_03_rep <- May_06_full[May_06_full$Region_name == "GRID_A_N_REP_5_06_03",]
 May_06_04_rep <- May_06_full[May_06_full$Region_name == "GRID_A_N_REP_5_06_04",]
 
-## filter to not include above 60 m
-
-May_06_02 <- May_06_02 %>% filter(Layer_depth_max <= 60)
-May_06_03 <- May_06_03 %>% filter(Layer_depth_max <= 60)
-May_06_04 <- May_06_04 %>% filter(Layer_depth_max <= 60)
-
-May_06_02_rep <- May_06_02_rep %>% filter(Layer_depth_max <= 60)
-May_06_03_rep <- May_06_03_rep %>% filter(Layer_depth_max <= 60)
-May_06_04_rep <- May_06_04_rep %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -225,8 +193,8 @@ for (i in 1:length(May_06_04_rep$PRC_ABC)) {
 
 #### May 07 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_07_full <- read.csv("May_07_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_07_full <- read.csv("May_07_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -241,20 +209,6 @@ May_07_04_rep <- May_07_full[May_07_full$Region_name == "GRID_A_N_REP_5_07_04",]
 May_07_02_night <- May_07_full[May_07_full$Region_name == "GRID_A_N_NIGHT_5_07_02",]
 May_07_03_night <- May_07_full[May_07_full$Region_name == "GRID_A_N_NIGHT_5_07_03",]
 May_07_04_night <- May_07_full[May_07_full$Region_name == "GRID_A_N_NIGHT_5_07_04",]
-
-## filter to not include above 60 m
-
-May_07_02 <- May_07_02 %>% filter(Layer_depth_max <= 60)
-May_07_03 <- May_07_03 %>% filter(Layer_depth_max <= 60)
-May_07_04 <- May_07_04 %>% filter(Layer_depth_max <= 60)
-
-May_07_02_rep <- May_07_02_rep %>% filter(Layer_depth_max <= 60)
-May_07_03_rep <- May_07_03_rep %>% filter(Layer_depth_max <= 60)
-May_07_04_rep <- May_07_04_rep %>% filter(Layer_depth_max <= 60)
-
-May_07_02_night <- May_07_02_night %>% filter(Layer_depth_max <= 60)
-May_07_03_night <- May_07_03_night %>% filter(Layer_depth_max <= 60)
-May_07_04_night <- May_07_04_night %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -321,22 +275,16 @@ for (i in 1:length(May_07_04_night$PRC_ABC)) {
 
 #### May 08 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_08_full <- read.csv("May_08_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_08_full <- read.csv("May_08_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 May_08_02 <- May_08_full[May_08_full$Region_name == "GRID_A_N_5_08_02",]
 May_08_03 <- May_08_full[May_08_full$Region_name == "GRID_A_N_5_08_03",]
 May_08_04 <- May_08_full[May_08_full$Region_name == "GRID_A_N_5_08_04",]
-
-## filter to not include above 60 m
-
-May_08_02 <- May_08_02 %>% filter(Layer_depth_max <= 60)
-May_08_03 <- May_08_03 %>% filter(Layer_depth_max <= 60)
-May_08_04 <- May_08_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -361,22 +309,16 @@ for (i in 1:length(May_08_04$PRC_ABC)) {
 
 #### May 09 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_09_full <- read.csv("May_09_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_09_full <- read.csv("May_09_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 May_09_02 <- May_09_full[May_09_full$Region_name == "GRID_A_N_5_09_02",]
 May_09_03 <- May_09_full[May_09_full$Region_name == "GRID_A_N_5_09_03",]
 May_09_04 <- May_09_full[May_09_full$Region_name == "GRID_A_N_5_09_04",]
-
-## filter to not include above 60 m
-
-May_09_02 <- May_09_02 %>% filter(Layer_depth_max <= 60)
-May_09_03 <- May_09_03 %>% filter(Layer_depth_max <= 60)
-May_09_04 <- May_09_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -401,22 +343,16 @@ for (i in 1:length(May_09_04$PRC_ABC)) {
 
 #### May 10 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_10_full <- read.csv("May_10_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_10_full <- read.csv("May_10_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 May_10_02 <- May_10_full[May_10_full$Region_name == "GRID_A_N_5_10_02",]
 May_10_03 <- May_10_full[May_10_full$Region_name == "GRID_A_N_5_10_03",]
 May_10_04 <- May_10_full[May_10_full$Region_name == "GRID_A_N_5_10_04",]
-
-## filter to not include above 60 m
-
-May_10_02 <- May_10_02 %>% filter(Layer_depth_max <= 60)
-May_10_03 <- May_10_03 %>% filter(Layer_depth_max <= 60)
-May_10_04 <- May_10_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -441,22 +377,16 @@ for (i in 1:length(May_10_04$PRC_ABC)) {
 
 #### May 13 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-May_13_full <- read.csv("May_13_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+May_13_full <- read.csv("May_13_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 May_13_02 <- May_13_full[May_13_full$Region_name == "GRID_A_N_5_13_0",]
 May_13_03 <- May_13_full[May_13_full$Region_name == "GRID_A_N_5_13_03",]
 May_13_04 <- May_13_full[May_13_full$Region_name == "GRID_A_N_5_13_04",]
-
-## filter to not include above 60 m
-
-May_13_02 <- May_13_02 %>% filter(Layer_depth_max <= 60)
-May_13_03 <- May_13_03 %>% filter(Layer_depth_max <= 60)
-May_13_04 <- May_13_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -481,22 +411,16 @@ for (i in 1:length(May_13_04$PRC_ABC)) {
 
 #### June 03 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_03_full <- read.csv("June_03_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_03_full <- read.csv("June_03_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 June_03_02 <- June_03_full[June_03_full$Region_name == "GRID_B_N_6_03_02",]
 June_03_03 <- June_03_full[June_03_full$Region_name == "GRID_B_N_6_03_03",]
 June_03_04 <- June_03_full[June_03_full$Region_name == "GRID_B_N_6_03_04",]
-
-## filter to not include above 60 m
-
-June_03_02 <- June_03_02 %>% filter(Layer_depth_max <= 60)
-June_03_03 <- June_03_03 %>% filter(Layer_depth_max <= 60)
-June_03_04 <- June_03_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -521,10 +445,10 @@ for (i in 1:length(June_03_04$PRC_ABC)) {
 
 #### June 04 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_04_full <- read.csv("June_04_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_04_full <- read.csv("June_04_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -535,16 +459,6 @@ June_04_04 <- June_04_full[June_04_full$Region_name == "GRID_B_N_6_04_04",]
 June_04_02_night <- June_04_full[June_04_full$Region_name == "GRID_B_N_NIGHT_6_04_02",]
 June_04_03_night <- June_04_full[June_04_full$Region_name == "GRID_B_N_NIGHT_6_04_03",]
 June_04_04_night <- June_04_full[June_04_full$Region_name == "GRID_B_N_NIGHT_6_04_04",]
-
-## filter to not include above 60 m
-
-June_04_02 <- June_04_02 %>% filter(Layer_depth_max <= 60)
-June_04_03 <- June_04_03 %>% filter(Layer_depth_max <= 60)
-June_04_04 <- June_04_04 %>% filter(Layer_depth_max <= 60)
-
-June_04_02_night <- June_04_02_night %>% filter(Layer_depth_max <= 60)
-June_04_03_night <- June_04_03_night %>% filter(Layer_depth_max <= 60)
-June_04_04_night <- June_04_04_night %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -590,22 +504,16 @@ for (i in 1:length(June_04_04_night$PRC_ABC)) {
 
 #### June 06 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_06_full <- read.csv("June_06_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_06_full <- read.csv("June_06_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 June_06_02 <- June_06_full[June_06_full$Region_name == "GRID_B_N_6_06_02",]
 June_06_03 <- June_06_full[June_06_full$Region_name == "GRID_B_N_6_06_03",]
 June_06_04 <- June_06_full[June_06_full$Region_name == "GRID_B_N_6_06_04",]
-
-## filter to not include above 60 m
-
-June_06_02 <- June_06_02 %>% filter(Layer_depth_max <= 60)
-June_06_03 <- June_06_03 %>% filter(Layer_depth_max <= 60)
-June_06_04 <- June_06_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -630,22 +538,16 @@ for (i in 1:length(June_06_04$PRC_ABC)) {
 
 #### June 07 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_07_full <- read.csv("June_07_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_07_full <- read.csv("June_07_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 June_07_02 <- June_07_full[June_07_full$Region_name == "GRID_B_N_6_07_02",]
 June_07_03 <- June_07_full[June_07_full$Region_name == "GRID_B_N_6_07_03",]
 June_07_04 <- June_07_full[June_07_full$Region_name == "GRID_B_N_6_07_04",]
-
-## filter to not include above 60 m
-
-June_07_02 <- June_07_02 %>% filter(Layer_depth_max <= 60)
-June_07_03 <- June_07_03 %>% filter(Layer_depth_max <= 60)
-June_07_04 <- June_07_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -670,22 +572,16 @@ for (i in 1:length(June_07_04$PRC_ABC)) {
 
 #### June 08 ####
 
-## 3m VBins 15m HBins 60m from bottom
+## 3m VBins 15m HBins 30m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_08_full <- read.csv("June_08_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_08_full <- read.csv("June_08_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
 June_08_02 <- June_08_full[June_08_full$Region_name == "GRID_B_N_6_08_02",]
 June_08_03 <- June_08_full[June_08_full$Region_name == "GRID_B_N_6_08_03",]
 June_08_04 <- June_08_full[June_08_full$Region_name == "GRID_B_N_6_08_04",]
-
-## filter to not include above 60 m
-
-June_08_02 <- June_08_02 %>% filter(Layer_depth_max <= 60)
-June_08_03 <- June_08_03 %>% filter(Layer_depth_max <= 60)
-June_08_04 <- June_08_04 %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -710,8 +606,8 @@ for (i in 1:length(June_08_04$PRC_ABC)) {
 
 #### June 09 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_09_full <- read.csv("June_09_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_09_full <- read.csv("June_09_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -726,20 +622,6 @@ June_09_04_rep <- June_09_full[June_09_full$Region_name == "GRID_B_N_REP_6_09_04
 June_09_02_night <- June_09_full[June_09_full$Region_name == "GRID_B_N_NIGHT_6_09_02",]
 June_09_03_night <- June_09_full[June_09_full$Region_name == "GRID_B_N_NIGHT_6_09_03",]
 June_09_04_night <- June_09_full[June_09_full$Region_name == "GRID_B_N_NIGHT_6_09_04",]
-
-## filter to not include above 60 m
-
-June_09_02 <- June_09_02 %>% filter(Layer_depth_max <= 60)
-June_09_03 <- June_09_03 %>% filter(Layer_depth_max <= 60)
-June_09_04 <- June_09_04 %>% filter(Layer_depth_max <= 60)
-
-June_09_02_rep <- June_09_02_rep %>% filter(Layer_depth_max <= 60)
-June_09_03_rep <- June_09_03_rep %>% filter(Layer_depth_max <= 60)
-June_09_04_rep <- June_09_04_rep %>% filter(Layer_depth_max <= 60)
-
-June_09_02_night <- June_09_02_night %>% filter(Layer_depth_max <= 60)
-June_09_03_night <- June_09_03_night %>% filter(Layer_depth_max <= 60)
-June_09_04_night <- June_09_04_night %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -806,8 +688,8 @@ for (i in 1:length(June_09_04_night$PRC_ABC)) {
 
 #### June 11 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_11_full <- read.csv("June_11_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_11_full <- read.csv("June_11_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -822,20 +704,6 @@ June_11_04_rep <- June_11_full[June_11_full$Region_name == "GRID_B_N_REP_6_11_04
 June_11_02_night <- June_11_full[June_11_full$Region_name == "GRID_B_N_NIGHT_6_11_02",]
 June_11_03_night <- June_11_full[June_11_full$Region_name == "GRID_B_N_NIGHT_6_11_03",]
 June_11_04_night <- June_11_full[June_11_full$Region_name == "GRID_B_N_NIGHT_6_11_04",]
-
-## filter to not include above 60 m
-
-June_11_02 <- June_11_02 %>% filter(Layer_depth_max <= 60)
-June_11_03 <- June_11_03 %>% filter(Layer_depth_max <= 60)
-June_11_04 <- June_11_04 %>% filter(Layer_depth_max <= 60)
-
-June_11_02_rep <- June_11_02_rep %>% filter(Layer_depth_max <= 60)
-June_11_03_rep <- June_11_03_rep %>% filter(Layer_depth_max <= 60)
-June_11_04_rep <- June_11_04_rep %>% filter(Layer_depth_max <= 60)
-
-June_11_02_night <- June_11_02_night %>% filter(Layer_depth_max <= 60)
-June_11_03_night <- June_11_03_night %>% filter(Layer_depth_max <= 60)
-June_11_04_night <- June_11_04_night %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -902,8 +770,8 @@ for (i in 1:length(June_11_04_night$PRC_ABC)) {
 
 #### June 13 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
-June_13_full <- read.csv("June_13_3m_VBins_15m_HBins_60m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+June_13_full <- read.csv("June_13_3m_VBins_15m_HBins_30m_bottom.csv")
 
 ## filtering transects
 
@@ -914,16 +782,6 @@ June_13_04 <- June_13_full[June_13_full$Region_name == "GRID_B_N_6_13_04",]
 June_13_02_rep <- June_13_full[June_13_full$Region_name == "GRID_B_N_REP_6_13_02",]
 June_13_03_rep <- June_13_full[June_13_full$Region_name == "GRID_B_N_REP_6_13_03",]
 June_13_04_rep <- June_13_full[June_13_full$Region_name == "GRID_B_N_REP_6_13_04",]
-
-## filter to not include above 60 m
-
-June_13_02 <- June_13_02 %>% filter(Layer_depth_max <= 60)
-June_13_03 <- June_13_03 %>% filter(Layer_depth_max <= 60)
-June_13_04 <- June_13_04 %>% filter(Layer_depth_max <= 60)
-
-June_13_02_rep <- June_13_02_rep %>% filter(Layer_depth_max <= 60)
-June_13_03_rep <- June_13_03_rep %>% filter(Layer_depth_max <= 60)
-June_13_04_rep <- June_13_04_rep %>% filter(Layer_depth_max <= 60)
 
 ## Day - Transect 2
 
@@ -968,9 +826,11 @@ for (i in 1:length(June_13_04_rep$PRC_ABC)) {
 }
 
 
-## Sums of Abundance along Transect ## 
+#### Sums of Abundance along Transect #### 
 
 library(dplyr)
+
+# Summing vertically
 
 #### May 02 ####
 
@@ -1365,11 +1225,6 @@ June_13_Transect_4_Repeat <- June_13_04_rep %>%
   summarise(Sum = sum(abundance))
 
 
-#### Next steps:  ####
-
-# Obtain total number of fish in ZOI for each transect
-# Obtain total number of fish in turbine for each transect
-# Turn those numbers into distributions
 
 #### Total number of fish in each transect ####
 
@@ -1824,6 +1679,8 @@ June_13_ZOI_4_Repeat <- June_13_Transect_4_Repeat[51:60,]
 June_13_ZOI_4_sum_Repeat <- sum(June_13_ZOI_4_Repeat$Sum)
 June_13_ZOI_4_Prob_Repeat <- June_13_ZOI_4_sum_Repeat/sum81
 
+## All
+
 All_ZOI_Probs <- c(May_2_ZOI_2_Prob, May_2_ZOI_3_Prob, May_2_ZOI_4_Prob,
                    May_4_ZOI_2_Prob, May_4_ZOI_3_Prob, May_4_ZOI_4_Prob, May_4_ZOI_2_Prob_Night, May_4_ZOI_3_Prob_Night, May_4_ZOI_4_Prob_Night, May_4_ZOI_2_Prob_Repeat, May_4_ZOI_3_Prob_Repeat, May_4_ZOI_4_Prob_Repeat,
                    May_6_ZOI_2_Prob, May_6_ZOI_3_Prob, May_6_ZOI_4_Prob, May_6_ZOI_2_Prob_Repeat, May_6_ZOI_3_Prob_Repeat, May_6_ZOI_4_Prob_Repeat,
@@ -1842,12 +1699,49 @@ All_ZOI_Probs <- c(May_2_ZOI_2_Prob, May_2_ZOI_3_Prob, May_2_ZOI_4_Prob,
                    June_13_ZOI_2_Prob, June_13_ZOI_3_Prob, June_13_ZOI_4_Prob, June_13_ZOI_2_Prob_Repeat, June_13_ZOI_3_Prob_Repeat, June_13_ZOI_4_Prob_Repeat)
 
 All_ZOI_Probs <- na.omit(All_ZOI_Probs)
-
 weighted <- as.data.frame(plyr::count(All_ZOI_Probs))
 weight_mean_s <- weighted.mean(weighted$x, weighted$freq)
 
-hist(All_ZOI_Probs, breaks = 20)
+hist(All_ZOI_Probs, breaks = 100, xlab = "Probability", main = "Day & Night Probabilities")
 abline(v = weight_mean_s, col = "red")
 
-weighted <- as.data.frame(plyr::count(All_ZOI_Probs))
-weight_mean_s <- weighted.mean(weighted$x, weighted$freq)
+## Day
+
+All_ZOI_Day <- c(May_2_ZOI_2_Prob, May_2_ZOI_3_Prob, May_2_ZOI_4_Prob,
+                 May_4_ZOI_2_Prob, May_4_ZOI_3_Prob, May_4_ZOI_4_Prob, May_4_ZOI_2_Prob_Repeat, May_4_ZOI_3_Prob_Repeat, May_4_ZOI_4_Prob_Repeat,
+                 May_6_ZOI_2_Prob, May_6_ZOI_3_Prob, May_6_ZOI_4_Prob, May_6_ZOI_2_Prob_Repeat, May_6_ZOI_3_Prob_Repeat, May_6_ZOI_4_Prob_Repeat,
+                 May_7_ZOI_2_Prob, May_7_ZOI_3_Prob, May_7_ZOI_4_Prob, May_7_ZOI_2_Prob_Repeat, May_7_ZOI_3_Prob_Repeat, May_7_ZOI_4_Prob_Repeat,
+                 May_8_ZOI_2_Prob, May_8_ZOI_3_Prob, May_8_ZOI_4_Prob,
+                 May_9_ZOI_2_Prob, May_9_ZOI_3_Prob, May_9_ZOI_4_Prob,
+                 May_10_ZOI_2_Prob, May_10_ZOI_3_Prob, May_10_ZOI_4_Prob,
+                 May_13_ZOI_2_Prob, May_13_ZOI_3_Prob, May_13_ZOI_4_Prob,
+                 June_03_ZOI_2_Prob, June_03_ZOI_3_Prob, June_03_ZOI_4_Prob,
+                 June_04_ZOI_2_Prob, June_04_ZOI_3_Prob, June_04_ZOI_4_Prob,
+                 June_06_ZOI_2_Prob, June_06_ZOI_3_Prob, June_06_ZOI_4_Prob,
+                 June_07_ZOI_2_Prob, June_07_ZOI_3_Prob, June_07_ZOI_4_Prob,
+                 June_08_ZOI_2_Prob, June_08_ZOI_3_Prob, June_08_ZOI_4_Prob,
+                 June_09_ZOI_2_Prob, June_09_ZOI_3_Prob, June_09_ZOI_4_Prob, June_09_ZOI_2_Prob_Repeat, June_09_ZOI_3_Prob_Repeat, June_09_ZOI_4_Prob_Repeat,
+                 June_11_ZOI_2_Prob, June_11_ZOI_3_Prob, June_11_ZOI_4_Prob, June_11_ZOI_2_Prob_Repeat, June_11_ZOI_3_Prob_Repeat, June_11_ZOI_4_Prob_Repeat,
+                 June_13_ZOI_2_Prob, June_13_ZOI_3_Prob, June_13_ZOI_4_Prob, June_13_ZOI_2_Prob_Repeat, June_13_ZOI_3_Prob_Repeat, June_13_ZOI_4_Prob_Repeat)
+
+All_ZOI_Day <- na.omit(All_ZOI_Day)
+weighted <- as.data.frame(plyr::count(All_ZOI_Day))
+weight_mean_d <- weighted.mean(weighted$x, weighted$freq)
+
+hist(All_ZOI_Day, breaks = 100, xlab = "Probability", main = "Day Probabilities")
+abline(v = weight_mean_d, col = "red")
+
+## Night
+
+All_ZOI_Night <- c(May_4_ZOI_2_Prob_Night, May_4_ZOI_3_Prob_Night, May_4_ZOI_4_Prob_Night,
+                   May_7_ZOI_2_Prob_Night, May_7_ZOI_3_Prob_Night, May_7_ZOI_4_Prob_Night,
+                   June_04_ZOI_2_Prob_Night, June_04_ZOI_3_Prob_Night, June_04_ZOI_4_Prob_Night,
+                   June_09_ZOI_2_Prob_Night, June_09_ZOI_3_Prob_Night, June_09_ZOI_4_Prob_Night,
+                   June_11_ZOI_2_Prob_Night, June_11_ZOI_3_Prob_Night, June_11_ZOI_4_Prob_Night) 
+
+All_ZOI_Night <- na.omit(All_ZOI_Night)
+weighted <- as.data.frame(plyr::count(All_ZOI_Night))
+weight_mean_n <- weighted.mean(weighted$x, weighted$freq)
+
+hist(All_ZOI_Night, breaks = 100, xlab = "Probability", main = "Night Probabilities")
+abline(v = weight_mean_n, col = "red")
