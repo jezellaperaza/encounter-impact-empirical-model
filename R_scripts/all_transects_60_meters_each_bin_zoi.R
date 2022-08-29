@@ -1,3 +1,6 @@
+#### Each 15-meter bin is a potential ZOI
+#### August 2022
+
 setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
 
 library(tidyverse)

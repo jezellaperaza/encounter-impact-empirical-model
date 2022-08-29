@@ -1,5 +1,5 @@
-## ZOI Component
-## Obtaining abundances per day per transect
+## Obtaining abundances per day per transect (2-4)
+## Arbitrary ZOI
 ## August 2022
 
 #### Variables ####
@@ -15,10 +15,10 @@ transect_area <- 60*1500
 
 #### May 02 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_02_full <- read.csv("May_02_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_02_full <- read.csv("May_02_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -49,10 +49,10 @@ for (i in 1:length(May_02_04$PRC_ABC)) {
 
 #### May 04 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_04_full <- read.csv("May_04_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_04_full <- read.csv("May_04_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -133,10 +133,10 @@ for (i in 1:length(May_04_04_night$PRC_ABC)) {
 
 #### May 06 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_06_full <- read.csv("May_06_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_06_full <- read.csv("May_06_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -193,8 +193,8 @@ for (i in 1:length(May_06_04_rep$PRC_ABC)) {
 
 #### May 07 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_07_full <- read.csv("May_07_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_07_full <- read.csv("May_07_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -275,10 +275,10 @@ for (i in 1:length(May_07_04_night$PRC_ABC)) {
 
 #### May 08 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_08_full <- read.csv("May_08_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_08_full <- read.csv("May_08_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -309,10 +309,10 @@ for (i in 1:length(May_08_04$PRC_ABC)) {
 
 #### May 09 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_09_full <- read.csv("May_09_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_09_full <- read.csv("May_09_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -343,10 +343,10 @@ for (i in 1:length(May_09_04$PRC_ABC)) {
 
 #### May 10 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_10_full <- read.csv("May_10_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_10_full <- read.csv("May_10_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -377,10 +377,10 @@ for (i in 1:length(May_10_04$PRC_ABC)) {
 
 #### May 13 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-May_13_full <- read.csv("May_13_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+May_13_full <- read.csv("May_13_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -411,10 +411,10 @@ for (i in 1:length(May_13_04$PRC_ABC)) {
 
 #### June 03 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_03_full <- read.csv("June_03_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_03_full <- read.csv("June_03_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -445,10 +445,10 @@ for (i in 1:length(June_03_04$PRC_ABC)) {
 
 #### June 04 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_04_full <- read.csv("June_04_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_04_full <- read.csv("June_04_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -504,10 +504,10 @@ for (i in 1:length(June_04_04_night$PRC_ABC)) {
 
 #### June 06 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_06_full <- read.csv("June_06_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_06_full <- read.csv("June_06_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -538,10 +538,10 @@ for (i in 1:length(June_06_04$PRC_ABC)) {
 
 #### June 07 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_07_full <- read.csv("June_07_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_07_full <- read.csv("June_07_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -572,10 +572,10 @@ for (i in 1:length(June_07_04$PRC_ABC)) {
 
 #### June 08 ####
 
-## 3m VBins 15m HBins 30m from bottom
+## 3m VBins 15m HBins 60m from bottom
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_08_full <- read.csv("June_08_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_08_full <- read.csv("June_08_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -606,8 +606,8 @@ for (i in 1:length(June_08_04$PRC_ABC)) {
 
 #### June 09 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_09_full <- read.csv("June_09_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_09_full <- read.csv("June_09_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -688,8 +688,8 @@ for (i in 1:length(June_09_04_night$PRC_ABC)) {
 
 #### June 11 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_11_full <- read.csv("June_11_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_11_full <- read.csv("June_11_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -770,8 +770,8 @@ for (i in 1:length(June_11_04_night$PRC_ABC)) {
 
 #### June 13 ####
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
-June_13_full <- read.csv("June_13_3m_VBins_15m_HBins_30m_bottom.csv")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
+June_13_full <- read.csv("June_13_3m_VBins_15m_HBins_60m_bottom.csv")
 
 ## filtering transects
 
@@ -1702,7 +1702,7 @@ All_ZOI_Probs <- na.omit(All_ZOI_Probs)
 weighted <- as.data.frame(plyr::count(All_ZOI_Probs))
 weight_mean_s <- weighted.mean(weighted$x, weighted$freq)
 
-hist(All_ZOI_Probs, breaks = 100, xlab = "Probability", main = "Day & Night Probabilities")
+hist(All_ZOI_Probs, breaks = 20, xlab = "Probability", main = "Day & Night Probabilities")
 abline(v = weight_mean_s, col = "red")
 
 ## Day
@@ -1728,7 +1728,7 @@ All_ZOI_Day <- na.omit(All_ZOI_Day)
 weighted <- as.data.frame(plyr::count(All_ZOI_Day))
 weight_mean_d <- weighted.mean(weighted$x, weighted$freq)
 
-hist(All_ZOI_Day, breaks = 100, xlab = "Probability", main = "Day Probabilities")
+hist(All_ZOI_Day, breaks = 20, xlab = "Probability", main = "Day Probabilities")
 abline(v = weight_mean_d, col = "red")
 
 ## Night
@@ -1743,5 +1743,6 @@ All_ZOI_Night <- na.omit(All_ZOI_Night)
 weighted <- as.data.frame(plyr::count(All_ZOI_Night))
 weight_mean_n <- weighted.mean(weighted$x, weighted$freq)
 
-hist(All_ZOI_Night, breaks = 100, xlab = "Probability", main = "Night Probabilities")
+hist(All_ZOI_Night, breaks = 10, xlab = "Probability", main = "Night Probabilities")
 abline(v = weight_mean_n, col = "red")
+

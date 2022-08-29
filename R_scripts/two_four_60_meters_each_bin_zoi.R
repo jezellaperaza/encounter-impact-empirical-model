@@ -1,6 +1,7 @@
+## Each bin is potential ZOI
 ## August 2022
 
-setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+setwd("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
 
 library(tidyverse)
 
@@ -17,9 +18,9 @@ load_data <- function(path) {
   do.call(rbind, tables)
 }
 
-acoustic_data_30 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+acoustic_data_60 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
 
-acoustic_data_30 <- acoustic_data_30 %>% filter(Region_name %in% c("GRID_B_N_6_03_02", "GRID_B_N_6_03_03", "GRID_B_N_6_03_04",
+acoustic_data_60 <- acoustic_data_60 %>% filter(Region_name %in% c("GRID_B_N_6_03_02", "GRID_B_N_6_03_03", "GRID_B_N_6_03_04",
                                                                    "GRID_B_N_6_04_02", "GRID_B_N_6_04_03", "GRID_B_N_6_04_04",
                                                                    "GRID_B_N_NIGHT_6_04_02", "GRID_B_N_NIGHT_6_04_03", "GRID_B_N_NIGHT_6_04_04",
                                                                    "GRID_B_N_6_06_04", "GRID_B_N_6_06_02", "GRID_B_N_6_06_03",
@@ -49,36 +50,36 @@ acoustic_data_30 <- acoustic_data_30 %>% filter(Region_name %in% c("GRID_B_N_6_0
 
 #### Getting the abundance of each transect and domains ####
 
-## 30 m
+## 60 m
 
-for (i in 1:length(acoustic_data_30$PRC_ABC)) {
-  acoustic_data_30$abundance[i] <- NA
-  acoustic_data_30$abundance[i] <- acoustic_data_30$PRC_ABC[i]*transect_area/sigma_bs_herring
+for (i in 1:length(acoustic_data_60$PRC_ABC)) {
+  acoustic_data_60$abundance[i] <- NA
+  acoustic_data_60$abundance[i] <- acoustic_data_60$PRC_ABC[i]*transect_area/sigma_bs_herring
 }
 
 library(dplyr)
 
-## 30 m
+## 60 m
 
-transect_bin_30 <- acoustic_data_30 %>%
+transect_bin_60 <- acoustic_data_60 %>%
   group_by(Region_name, Dist_S) %>%
   dplyr::summarise(Sum_each = sum(abundance))
 
-domain_abundance_region_30 <- acoustic_data_30 %>%
+domain_abundance_region_60 <- acoustic_data_60 %>%
   group_by(Region_name) %>%
   dplyr::summarise(Sum_region = sum(abundance))
 
-domain_abundance_30 <- acoustic_data_30 %>%
+domain_abundance_60 <- acoustic_data_60 %>%
   group_by(EV_filename) %>%
   dplyr::summarise(Sum = sum(abundance))
 
-data_abundances_30 <- acoustic_data_30 %>%
+data_abundances_60 <- acoustic_data_60 %>%
   group_by(Dist_S) %>%
   dplyr::summarise(Sum = sum(abundance))
 
 #### Combine data frames and division function ####
 
-transects_30 <- merge(transect_bin_30, domain_abundance_region_30, by = "Region_name")
+transects_60 <- merge(transect_bin_60, domain_abundance_region_60, by = "Region_name")
 
 division_function <- function(sum_each, sum_region) {
   sum_each/sum_region
@@ -86,19 +87,19 @@ division_function <- function(sum_each, sum_region) {
 
 #### Probabilities ####
 
-## 30 m
+## 60 m
 
-two_four_30_prob <- division_function(transects_30$Sum_each, transects_30$Sum_region)
+two_four_60_prob <- division_function(transects_60$Sum_each, transects_60$Sum_region)
 
 ## Histograms
 
-## 30 m
+## 60 m
 
-weighted_data_30 <- as.data.frame(plyr::count(two_four_30_prob))
-weight_mean_30 <- weighted.mean(weighted_data_30$x, weighted_data_30$freq)
+weighted_data_60 <- as.data.frame(plyr::count(two_four_60_prob))
+weight_mean_60 <- weighted.mean(weighted_data_60$x, weighted_data_60$freq)
 
-hist(two_four_30_prob, breaks = 100, xlab = "Probability", main = "Day & Night Probabilities")
-abline(v = weight_mean_30, col = "red")
+hist(two_four_60_prob, breaks = 100, xlab = "Probability", main = "Day & Night Probabilities")
+abline(v = weight_mean_60, col = "red")
 
 #### Day only ####
 
@@ -110,11 +111,11 @@ load_data <- function(path) {
   do.call(rbind, tables)
 }
 
-day_acoustic_data_30 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+day_acoustic_data_60 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
 
-#### Filter the bottom (30 m) and for 2, 3, 4 transects ####
+#### Filter the bottom (60 m and 30 m) and for 2, 3, 4 transects ####
 
-day_acoustic_data_30 <- day_acoustic_data_30 %>% filter(Region_name %in% c("GRID_B_N_6_03_02", "GRID_B_N_6_03_03", "GRID_B_N_6_03_04",
+day_acoustic_data_60 <- day_acoustic_data_60 %>% filter(Region_name %in% c("GRID_B_N_6_03_02", "GRID_B_N_6_03_03", "GRID_B_N_6_03_04",
                                                                            "GRID_B_N_6_04_02", "GRID_B_N_6_04_03", "GRID_B_N_6_04_04",
                                                                            "GRID_B_N_6_06_04", "GRID_B_N_6_06_02", "GRID_B_N_6_06_03",
                                                                            "GRID_B_N_6_07_04", "GRID_B_N_6_07_03", "GRID_B_N_6_07_02",
@@ -139,36 +140,36 @@ day_acoustic_data_30 <- day_acoustic_data_30 %>% filter(Region_name %in% c("GRID
 
 #### Getting the abundance of each transect and domains ####
 
-## 30 m
+## 60 m
 
-for (i in 1:length(day_acoustic_data_30$PRC_ABC)) {
-  day_acoustic_data_30$abundance[i] <- NA
-  day_acoustic_data_30$abundance[i] <- day_acoustic_data_30$PRC_ABC[i]*transect_area/sigma_bs_herring
+for (i in 1:length(day_acoustic_data_60$PRC_ABC)) {
+  day_acoustic_data_60$abundance[i] <- NA
+  day_acoustic_data_60$abundance[i] <- day_acoustic_data_60$PRC_ABC[i]*transect_area/sigma_bs_herring
 }
 
 library(dplyr)
 
-## 30 m
+## 60 m
 
-day_transect_bin_30 <- day_acoustic_data_30 %>%
+day_transect_bin_60 <- day_acoustic_data_60 %>%
   group_by(Region_name, Dist_S) %>%
   dplyr::summarise(Sum_each = sum(abundance))
 
-day_domain_abundance_region_30 <- day_acoustic_data_30 %>%
+day_domain_abundance_region_60 <- day_acoustic_data_60 %>%
   group_by(Region_name) %>%
   dplyr::summarise(Sum_region = sum(abundance))
 
-day_domain_abundance_30 <- day_acoustic_data_30 %>%
+day_domain_abundance_60 <- day_acoustic_data_60 %>%
   group_by(EV_filename) %>%
   dplyr::summarise(Sum = sum(abundance))
 
-day_data_abundances_30 <- day_acoustic_data_30 %>%
+day_data_abundances_60 <- day_acoustic_data_60 %>%
   group_by(Dist_S) %>%
   dplyr::summarise(Sum = sum(abundance))
 
 #### Combine data frames and division function ####
 
-day_transects_30 <- merge(day_transect_bin_30, day_domain_abundance_region_30, by = "Region_name")
+day_transects_60 <- merge(day_transect_bin_60, day_domain_abundance_region_60, by = "Region_name")
 
 division_function <- function(sum_each, sum_region) {
   sum_each/sum_region
@@ -176,19 +177,19 @@ division_function <- function(sum_each, sum_region) {
 
 #### Probabilities ####
 
-## 30 m
+## 60 m
 
-day_two_four_30_prob <- division_function(day_transects_30$Sum_each, day_transects_30$Sum_region)
+day_two_four_60_prob <- division_function(day_transects_60$Sum_each, day_transects_60$Sum_region)
 
 ## Histograms
 
-## 30 m
+## 60 m
 
-weighted_data_30_day <- as.data.frame(plyr::count(day_two_four_30_prob))
-weight_mean_30_day <- weighted.mean(weighted_data_30_day$x, weighted_data_30_day$freq)
+weighted_data_60_day <- as.data.frame(plyr::count(day_two_four_60_prob))
+weight_mean_60_day <- weighted.mean(weighted_data_60_day$x, weighted_data_60_day$freq)
 
-hist(day_two_four_30_prob, breaks = 100, xlab = "Probability", main = "Day Probabilities")
-abline(v = weight_mean_30_day, col = "red")
+hist(day_two_four_60_prob, breaks = 100, xlab = "Probability", main = "Day Probabilities")
+abline(v = weight_mean_60_day, col = "red")
 
 
 #### Night only ####
@@ -201,11 +202,11 @@ load_data <- function(path) {
   do.call(rbind, tables)
 }
 
-night_acoustic_data_30 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 30m bottom")
+night_acoustic_data_60 <- load_data("~/UW Summer 2022/EV Exports/Mobile/20x Resolution Exports/3m VBins 15m HBins 60m bottom")
 
-#### Filter the bottom (30 m and 30 m) and for 2, 3, 4 transects ####
+#### Filter the bottom (60 m and 30 m) and for 2, 3, 4 transects ####
 
-night_acoustic_data_30 <- night_acoustic_data_30 %>% filter(Region_name %in% c("GRID_B_N_NIGHT_6_04_02", "GRID_B_N_NIGHT_6_04_03", "GRID_B_N_NIGHT_6_04_04",
+night_acoustic_data_60 <- night_acoustic_data_60 %>% filter(Region_name %in% c("GRID_B_N_NIGHT_6_04_02", "GRID_B_N_NIGHT_6_04_03", "GRID_B_N_NIGHT_6_04_04",
                                                                                "GRID_B_N_NIGHT_6_09_02", "GRID_B_N_NIGHT_6_09_03", "GRID_B_N_NIGHT_6_09_04",
                                                                                "GRID_B_N_NIGHT_6_11_02", "GRID_B_N_NIGHT_6_11_03", "GRID_B_N_NIGHT_6_11_04",
                                                                                "GRID_A_N_NIGHT_5_04_02", "GRID_A_N_NIGHT_5_04_03", "GRID_A_N_NIGHT_5_04_04",
@@ -214,34 +215,34 @@ night_acoustic_data_30 <- night_acoustic_data_30 %>% filter(Region_name %in% c("
 
 #### Getting the abundance of each transect and domains ####
 
-## 30 m
+## 60 m
 
-for (i in 1:length(night_acoustic_data_30$PRC_ABC)) {
-  night_acoustic_data_30$abundance[i] <- NA
-  night_acoustic_data_30$abundance[i] <- night_acoustic_data_30$PRC_ABC[i]*transect_area/sigma_bs_herring
+for (i in 1:length(night_acoustic_data_60$PRC_ABC)) {
+  night_acoustic_data_60$abundance[i] <- NA
+  night_acoustic_data_60$abundance[i] <- night_acoustic_data_60$PRC_ABC[i]*transect_area/sigma_bs_herring
 }
 
-## 30 m
+## 60 m
 
-night_transect_bin_30 <- night_acoustic_data_30 %>%
+night_transect_bin_60 <- night_acoustic_data_60 %>%
   group_by(Region_name, Dist_S) %>%
   dplyr::summarise(Sum_each = sum(abundance))
 
-night_domain_abundance_region_30 <- night_acoustic_data_30 %>%
+night_domain_abundance_region_60 <- night_acoustic_data_60 %>%
   group_by(Region_name) %>%
   dplyr::summarise(Sum_region = sum(abundance))
 
-night_domain_abundance_30 <- night_acoustic_data_30 %>%
+night_domain_abundance_60 <- night_acoustic_data_60 %>%
   group_by(EV_filename) %>%
   dplyr::summarise(Sum = sum(abundance))
 
-night_data_abundances_30 <- night_acoustic_data_30 %>%
+night_data_abundances_60 <- night_acoustic_data_60 %>%
   group_by(Dist_S) %>%
   dplyr::summarise(Sum = sum(abundance))
 
 #### Combine data frames and division function ####
 
-night_transects_30 <- merge(night_transect_bin_30, night_domain_abundance_region_30, by = "Region_name")
+night_transects_60 <- merge(night_transect_bin_60, night_domain_abundance_region_60, by = "Region_name")
 
 division_function <- function(sum_each, sum_region) {
   sum_each/sum_region
@@ -249,16 +250,16 @@ division_function <- function(sum_each, sum_region) {
 
 #### Probabilities ####
 
-## 30 m
+## 60 m
 
-night_two_four_30_prob <- division_function(night_transects_30$Sum_each, night_transects_30$Sum_region)
+night_two_four_60_prob <- division_function(night_transects_60$Sum_each, night_transects_60$Sum_region)
 
 ## Histograms
 
-## 30 m
+## 60 m
 
-weighted_data_30_night <- as.data.frame(plyr::count(night_two_four_30_prob))
-weight_mean_30_night <- weighted.mean(weighted_data_30_night$x, weighted_data_30_night$freq)
+weighted_data_60_night <- as.data.frame(plyr::count(night_two_four_60_prob))
+weight_mean_60_night <- weighted.mean(weighted_data_60_night$x, weighted_data_60_night$freq)
 
-hist(night_two_four_30_prob, breaks = 100, xlab = "Probability", main = "Night Probabilities")
-abline(v = weight_mean_30_night, col = "red")
+hist(night_two_four_60_prob, breaks = 100, xlab = "Probability", main = "Night Probabilities")
+abline(v = weight_mean_60_night, col = "red")
