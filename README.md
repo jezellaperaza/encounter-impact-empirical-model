@@ -1,3 +1,3 @@
-# chapter-one-scripts
-### Master's thesis; chapter one R scripts
-### Code for review and collaboration
+# Empirical Encounter-Impact Model
+### Jezella Ileana Peraza
+### Master's Thesis
